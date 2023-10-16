@@ -23,10 +23,10 @@ const securityHeaders = [
     key: "Referrer-Policy",
     value: "no-referrer",
   },
-  {
-    key: "Content-Security-Policy",
-    value: csp.replace(/\s{2,}/g, " ").trim(),
-  },
+  // {
+  //   key: "Content-Security-Policy",
+  //   value: csp.replace(/\s{2,}/g, " ").trim(),
+  // },
 ];
 
 /** @type {import('next').NextConfig} */

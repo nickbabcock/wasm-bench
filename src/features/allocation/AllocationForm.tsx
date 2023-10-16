@@ -10,6 +10,7 @@ const runAllocation = async (text: string, iterations: number) => {
   const worker = wrap<WasmWorker>(rawWorker);
 
   try {
+    console.log(await worker.abc(text, iterations));
     return await worker.allocation(text, iterations);
   } finally {
     worker[releaseProxy]();

@@ -11,6 +11,18 @@ const alloc = load({
   wasm: wasmPath,
 });
 
+export async function abc(
+  corpus: string,
+  iterations: number,
+) {
+  const mod = await alloc();
+  const input = await fetch("https://pdx.tools/eu4/saves/l3mDIfueYIB-gjB0gOliK/file").then((x) => x.arrayBuffer());
+  const [def, elapsedMs] = await timeit(() => mod.abc(new Uint8Array(input)));
+  console.log(def.data_at(0), def.data_at(1), def.data_at(2));
+  def.free();
+  return { def, elapsedMs };
+}
+
 export async function allocation(
   corpus: string,
   iterations: number,
